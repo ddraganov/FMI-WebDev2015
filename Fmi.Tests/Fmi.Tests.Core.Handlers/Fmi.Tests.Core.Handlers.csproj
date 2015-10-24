@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{996DFD3F-4945-4225-866F-027420611E31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fmi.Tests.Core.Handlers</RootNamespace>
+    <AssemblyName>Fmi.Tests.Core.Handlers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandHandler.cs" />
+    <Compile Include="CrossCutting\LoggingHandlerDecorator.cs" />
+    <Compile Include="Features\Questions\CreateQuestionHandler.cs" />
+    <Compile Include="Features\Questions\DeleteQuestionHandler.cs" />
+    <Compile Include="Features\Questions\GetAllQuestionsHandler.cs" />
+    <Compile Include="Features\Questions\GetQuestionHandler.cs" />
+    <Compile Include="Features\Questions\UpdateQuestionHandler.cs" />
+    <Compile Include="Features\Tests\AddExistingTestQuestionsHandler.cs" />
+    <Compile Include="Features\Tests\AddNewTestQuestionsHandler.cs" />
+    <Compile Include="Features\Tests\CreateTestHandler.cs" />
+    <Compile Include="Features\Tests\DeleteTestHandler.cs" />
+    <Compile Include="Features\Tests\GetAllTestsHandler.cs" />
+    <Compile Include="Features\Tests\GetTestRequest.cs" />
+    <Compile Include="Features\Tests\UpdateTestHandler.cs" />
+    <Compile Include="Interfaces\IMediator.cs" />
+    <Compile Include="Interfaces\IRequestHandler.cs" />
+    <Compile Include="Mediator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fmi.Tests.Contracts\Fmi.Tests.Contracts.csproj">
+      <Project>{ACAD4002-14EB-485B-BD16-4DE378E43F6F}</Project>
+      <Name>Fmi.Tests.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

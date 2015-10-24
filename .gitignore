@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Fmi.Tests/Fmi.Tests.Api/bin
+/Fmi.Tests/Fmi.Tests.Api/obj/Debug
+*.user
+/Fmi.Tests/Fmi.Tests.Contracts/bin/Debug
+/Fmi.Tests/Fmi.Tests.Contracts/obj/Debug
+/Fmi.Tests/Fmi.Tests.Core.Handlers/bin/Debug
+/Fmi.Tests/Fmi.Tests.Core.Handlers/obj/Debug
+/Fmi.Tests/Fmi.Tests.Core.Services/bin/Debug
+/Fmi.Tests/Fmi.Tests.Core.Services/obj/Debug
+/Fmi.Tests/packages
+*.suo
