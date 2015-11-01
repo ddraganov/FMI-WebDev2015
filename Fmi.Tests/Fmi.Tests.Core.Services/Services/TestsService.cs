@@ -8,18 +8,18 @@ namespace Fmi.Tests.Core.Services.Services
 {
     public class TestsService : ITestsService
     {
-        public async Task<IEnumerable<BasicTestDto>> Get()
+        public async Task<IEnumerable<TestDto>> Get(int skip, int take)
         {
-            return new List<BasicTestDto>
+            return new List<TestDto>
             {
-                new BasicTestDto
+                new TestDto
                 {
                     Code = "Beginners",
                     AuthToken = Guid.NewGuid().ToString(),
                     Name = "Test For Beginners",
                     Description = "Test for beginners - level 1"
                 },
-                new BasicTestDto
+                new TestDto
                 {
                     Code = "Advanced",
                     AuthToken = Guid.NewGuid().ToString(),
@@ -29,15 +29,15 @@ namespace Fmi.Tests.Core.Services.Services
             };
         }
 
-        public async Task<FullTestDto> Get(string code)
+        public async Task<TestDto> Get(string code)
         {
-            return new FullTestDto
+            return new TestDto
             {
                 Code = "Beginners",
                 AuthToken = Guid.NewGuid().ToString(),
                 Name = "Test For Beginners",
                 Description = "Test for beginners - level 1",
-                Questions = new List<CreateQuestionDto>()
+                Questions = new List<QuestionDto>()
                 {
                     new QuestionDto()
                     {
@@ -83,27 +83,27 @@ namespace Fmi.Tests.Core.Services.Services
             };
         }
 
-        public async Task Create(BasicTestDto question)
+        public async Task Create(TestDto question)
         {
             //
         }
 
-        public async Task Update(BasicTestDto question)
+        public async Task Update(TestDto question, string authToken)
         {
             //
         }
 
-        public async Task Delete(string code)
+        public async Task Delete(string id, string authToken)
         {
             //
         }
 
-        public async Task AddQuestions(string code, List<int> questionIdList)
+        public async Task AddQuestions(string code, List<int> questionIdList, string authToken)
         {
             //
         }
 
-        public async Task AddQuestions(string code, List<CreateQuestionDto> questionIdList)
+        public async Task AddQuestions(string code, List<QuestionDto> questionIdList)
         {
             //
         }

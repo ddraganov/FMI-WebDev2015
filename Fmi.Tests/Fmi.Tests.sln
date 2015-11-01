@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fmi.Tests.Core.Handlers", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fmi.Tests.Core.Services", "Fmi.Tests.Core.Services\Fmi.Tests.Core.Services.csproj", "{63620421-D7C7-4EAF-B078-E0DFFFE38747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fmi.Tests.Api", "Fmi.Tests.Api\Fmi.Tests.Api.csproj", "{34C43BBD-18DF-48B9-8586-5237823650D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fmi.Tests.Api.Handlers", "Fmi.Tests.Api.Handlers\Fmi.Tests.Api.Handlers.csproj", "{34C43BBD-18DF-48B9-8586-5237823650D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fmi.Tests.Api.Services", "Fmi.Tests.Api.Services\Fmi.Tests.Api.Services.csproj", "{882A2AC5-73EA-4BCB-A3D4-7A9FC2179740}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{34C43BBD-18DF-48B9-8586-5237823650D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34C43BBD-18DF-48B9-8586-5237823650D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34C43BBD-18DF-48B9-8586-5237823650D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882A2AC5-73EA-4BCB-A3D4-7A9FC2179740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882A2AC5-73EA-4BCB-A3D4-7A9FC2179740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882A2AC5-73EA-4BCB-A3D4-7A9FC2179740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882A2AC5-73EA-4BCB-A3D4-7A9FC2179740}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

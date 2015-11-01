@@ -2,7 +2,7 @@
 
 namespace Fmi.Tests.Contracts.Requests.Tests
 {
-    public class GetTestRequest : IRequest<FullTestDto>
+    public class GetTestRequest : IRequest<TestDto>
     {
         public string Id { get; set; }
     }

@@ -39,20 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="Dto\AnswerDto.cs" />
-    <Compile Include="Dto\FullTestDto.cs" />
+    <Compile Include="Dto\TestDto.cs" />
     <Compile Include="Dto\QuestionDto.cs" />
-    <Compile Include="Dto\CreateQuestionDto.cs" />
-    <Compile Include="Dto\BasicTestDto.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\Questions\CheckQuestionsAreCorrectRequest.cs" />
     <Compile Include="Requests\Questions\DeleteQuestionRequest.cs" />
+    <Compile Include="Requests\Questions\CheckQuestionIsCorrectRequest.cs" />
     <Compile Include="Requests\Questions\UpdateQuestionRequest.cs" />
     <Compile Include="Requests\Questions\CreateQuestionRequest.cs" />
     <Compile Include="Requests\Questions\GetQuestionRequest.cs" />
     <Compile Include="Requests\Questions\GetAllQuestionsRequest.cs" />
-    <Compile Include="Requests\Tests\AddNewTestQuestionsRequest.cs" />
-    <Compile Include="Requests\Tests\AddExistingTestQuestionsRequest.cs" />
+    <Compile Include="Requests\Tests\AddTestQuestionsRequest.cs" />
     <Compile Include="Requests\Tests\CreateTestRequest.cs" />
     <Compile Include="Requests\Tests\DeleteTestRequest.cs" />
     <Compile Include="Requests\Tests\GetAllTestsRequest.cs" />

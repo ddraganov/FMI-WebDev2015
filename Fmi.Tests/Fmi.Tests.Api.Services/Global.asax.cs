@@ -10,7 +10,7 @@ using Fmi.Tests.Core.Handlers.Interfaces;
 using Fmi.Tests.Core.Services.Interfaces;
 using Fmi.Tests.Core.Services.Services;
 
-namespace Fmi.Tests.Api
+namespace Fmi.Tests.Api.Services
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

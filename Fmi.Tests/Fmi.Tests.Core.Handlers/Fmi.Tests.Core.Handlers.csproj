@@ -44,13 +44,14 @@
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
     <Compile Include="CrossCutting\LoggingHandlerDecorator.cs" />
+    <Compile Include="Features\Questions\CheckQuestionsAreCorrectHandler.cs" />
     <Compile Include="Features\Questions\CreateQuestionHandler.cs" />
     <Compile Include="Features\Questions\DeleteQuestionHandler.cs" />
     <Compile Include="Features\Questions\GetAllQuestionsHandler.cs" />
+    <Compile Include="Features\Questions\CheckQuestionIsCorrectHandler.cs" />
     <Compile Include="Features\Questions\GetQuestionHandler.cs" />
     <Compile Include="Features\Questions\UpdateQuestionHandler.cs" />
-    <Compile Include="Features\Tests\AddExistingTestQuestionsHandler.cs" />
-    <Compile Include="Features\Tests\AddNewTestQuestionsHandler.cs" />
+    <Compile Include="Features\Tests\AddTestQuestionsHandler.cs" />
     <Compile Include="Features\Tests\CreateTestHandler.cs" />
     <Compile Include="Features\Tests\DeleteTestHandler.cs" />
     <Compile Include="Features\Tests\GetAllTestsHandler.cs" />

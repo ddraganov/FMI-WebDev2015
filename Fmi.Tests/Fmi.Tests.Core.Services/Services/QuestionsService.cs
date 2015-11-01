@@ -7,7 +7,7 @@ namespace Fmi.Tests.Core.Services.Services
 {
     public class QuestionsService : IQuestionsService
     {
-        public async Task<IEnumerable<QuestionDto>> Get()
+        public async Task<IEnumerable<QuestionDto>> Get(int skip, int take)
         {
             return new List<QuestionDto>
             {
@@ -78,7 +78,7 @@ namespace Fmi.Tests.Core.Services.Services
             };
         }
 
-        public async Task Create(CreateQuestionDto question)
+        public async Task Create(QuestionDto question)
         {
             //
         }
@@ -91,6 +91,20 @@ namespace Fmi.Tests.Core.Services.Services
         public async Task Delete(int id)
         {
             //
+        }
+
+        public async Task<bool> IsCorrect(int id, int answer)
+        {
+            return true;
+        }
+
+        public async Task<Dictionary<int, bool>> AreCorrect(Dictionary<int, int> questionAnswers)
+        {
+            return new Dictionary<int, bool>
+            {
+                { 1, true },
+                { 2, false }
+            };
         }
     }
 }

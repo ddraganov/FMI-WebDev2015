@@ -4,6 +4,7 @@ namespace Fmi.Tests.Contracts.Requests.Tests
 {
     public class UpdateTestRequest : IRequest
     {
-        public BasicTestDto Test { get; set; }
+        public TestDto Test { get; set; }
+        public string AuthToken { get; set; }
     }
 }

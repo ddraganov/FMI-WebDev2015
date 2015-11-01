@@ -3,9 +3,9 @@ using Fmi.Tests.Contracts.Requests.Tests;
 
 namespace Fmi.Tests.Core.Handlers.Features.Tests
 {
-    public class AddNewTestQuestionsHandler : CommandHandler<AddNewTestQuestionsRequest>
+    public class AddTestQuestionsHandler : CommandHandler<AddTestQuestionsRequest>
     {
-        protected override async Task HandleCore(AddNewTestQuestionsRequest command)
+        protected override async Task HandleCore(AddTestQuestionsRequest command)
         {
             //
         }

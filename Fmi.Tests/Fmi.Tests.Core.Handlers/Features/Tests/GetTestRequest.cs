@@ -7,17 +7,17 @@ using Fmi.Tests.Core.Handlers.Interfaces;
 
 namespace Fmi.Tests.Core.Handlers.Features.Tests
 {
-    public class GetTestHandler : IRequestHandler<GetTestRequest, FullTestDto>
+    public class GetTestHandler : IRequestHandler<GetTestRequest, TestDto>
     {
-        public async Task<FullTestDto> HandleAsync(GetTestRequest request)
+        public async Task<TestDto> HandleAsync(GetTestRequest request)
         {
-            return new FullTestDto
+            return new TestDto
             {
                 Code = "Beginners",
                 AuthToken = Guid.NewGuid().ToString(),
                 Name = "Test For Beginners",
                 Description = "Test for beginners - level 1",
-                Questions = new List<CreateQuestionDto>()
+                Questions = new List<QuestionDto>()
                 {
                     new QuestionDto()
                     {

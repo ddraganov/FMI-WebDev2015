@@ -4,6 +4,6 @@ namespace Fmi.Tests.Contracts.Requests.Tests
 {
     public class CreateTestRequest : IRequest
     {
-        public BasicTestDto Test { get; set; }
+        public TestDto Test { get; set; }
     }
 }

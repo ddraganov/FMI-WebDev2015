@@ -13,3 +13,7 @@
 /Fmi.Tests/Fmi.Tests.Core.Services/obj/Debug
 /Fmi.Tests/packages
 *.suo
+/Fmi.Tests/Fmi.Tests.Api.Handlers/bin
+/Fmi.Tests/Fmi.Tests.Api.Handlers/obj/Debug
+/Fmi.Tests/Fmi.Tests.Api.Services/bin
+/Fmi.Tests/Fmi.Tests.Api.Services/obj/Debug

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Fmi.Tests.Api
+namespace Fmi.Tests.Api.Handlers
 {
     public class FilterConfig
     {
