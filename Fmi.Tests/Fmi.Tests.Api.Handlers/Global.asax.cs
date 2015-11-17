@@ -4,6 +4,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
+using FluentValidation.WebApi;
 using Fmi.Tests.Api.Handlers.Filters;
 using Fmi.Tests.Core.Handlers;
 using Fmi.Tests.Core.Handlers.CrossCutting;
@@ -22,6 +23,7 @@ namespace Fmi.Tests.Api.Handlers
 
             config.Filters.Add(new BadRequestExceptionAttribute());
             config.Filters.Add(new AuthAttribute());
+            config.Filters.Add(new ValidationFilterAttribute());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterFilters(config);
@@ -35,6 +37,8 @@ namespace Fmi.Tests.Api.Handlers
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            FluentValidationModelValidatorProvider.Configure(config);
 
             config.EnsureInitialized();
         }

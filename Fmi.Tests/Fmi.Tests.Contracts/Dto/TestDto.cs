@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using FluentValidation.Attributes;
+using Fmi.Tests.Contracts.Validators;
 
 namespace Fmi.Tests.Contracts.Dto
 {
+    [Validator(typeof(TestValidator))]
     public class TestDto
     {
         public TestDto()
