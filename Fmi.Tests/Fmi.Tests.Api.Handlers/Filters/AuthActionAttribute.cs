@@ -8,9 +8,9 @@ using Fmi.Tests.Contracts;
 
 namespace Fmi.Tests.Api.Handlers.Filters
 {
-    public class AuthActionAttribute : ActionFilterAttribute
+    public class AuthActionAttribute : AuthorizationFilterAttribute
     {
-        public override void OnActionExecuting(HttpActionContext actionContext)
+        public override void OnAuthorization(HttpActionContext actionContext)
         {
             var headers = actionContext.Request.Headers;
             IEnumerable<string> values;
@@ -21,7 +21,7 @@ namespace Fmi.Tests.Api.Handlers.Filters
             if (token != "thetoken")
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
 
-            base.OnActionExecuting(actionContext);
+            base.OnAuthorization(actionContext);
         }
     }
 }
