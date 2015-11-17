@@ -21,7 +21,7 @@ namespace Fmi.Tests.Api.Handlers
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
             config.Filters.Add(new BadRequestExceptionAttribute());
-            config.Filters.Add(new AuthActionAttribute());
+            config.Filters.Add(new AuthAttribute());
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterFilters(config);

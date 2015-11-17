@@ -6,9 +6,9 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using Fmi.Tests.Contracts;
 
-namespace Fmi.Tests.Api.Handlers.Filters
+namespace Fmi.Tests.Api.Services.Filters
 {
-    public class AuthActionAttribute : AuthorizationFilterAttribute
+    public class AuthAttribute : AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
