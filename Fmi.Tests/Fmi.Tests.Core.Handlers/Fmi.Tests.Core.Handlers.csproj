@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
     <Compile Include="CrossCutting\LoggingHandlerDecorator.cs" />
+    <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Features\Questions\CheckQuestionsAreCorrectHandler.cs" />
     <Compile Include="Features\Questions\CreateQuestionHandler.cs" />
     <Compile Include="Features\Questions\DeleteQuestionHandler.cs" />

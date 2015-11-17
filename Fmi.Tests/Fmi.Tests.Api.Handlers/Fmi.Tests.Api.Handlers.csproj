@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Filters\BadRequestExceptionAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -113,10 +114,6 @@
     <ProjectReference Include="..\Fmi.Tests.Core.Handlers\Fmi.Tests.Core.Handlers.csproj">
       <Project>{996DFD3F-4945-4225-866F-027420611E31}</Project>
       <Name>Fmi.Tests.Core.Handlers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fmi.Tests.Core.Services\Fmi.Tests.Core.Services.csproj">
-      <Project>{63620421-D7C7-4EAF-B078-E0DFFFE38747}</Project>
-      <Name>Fmi.Tests.Core.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

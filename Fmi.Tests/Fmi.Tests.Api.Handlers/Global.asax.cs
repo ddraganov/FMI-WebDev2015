@@ -4,11 +4,10 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
+using Fmi.Tests.Api.Handlers.Filters;
 using Fmi.Tests.Core.Handlers;
 using Fmi.Tests.Core.Handlers.CrossCutting;
 using Fmi.Tests.Core.Handlers.Interfaces;
-using Fmi.Tests.Core.Services.Interfaces;
-using Fmi.Tests.Core.Services.Services;
 
 namespace Fmi.Tests.Api.Handlers
 {
@@ -21,6 +20,8 @@ namespace Fmi.Tests.Api.Handlers
             config.MapHttpAttributeRoutes();
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
+            config.Filters.Add(new BadRequestExceptionAttribute());
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterFilters(config);
 
@@ -30,7 +31,6 @@ namespace Fmi.Tests.Api.Handlers
             builder.RegisterWebApiFilterProvider(config);
 
             RegisterHandlers(builder);
-            RegisterServices(builder);
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
@@ -52,17 +52,6 @@ namespace Fmi.Tests.Api.Handlers
                 typeof(LoggingHandlerDecorator<,>),
                 typeof(IRequestHandler<,>),
                 fromKey: "handler");
-        }
-
-        private static void RegisterServices(ContainerBuilder builder)
-        {
-            builder.RegisterType<QuestionsService>()
-                .As<IQuestionsService>()
-                .InstancePerRequest();
-
-            builder.RegisterType<TestsService>()
-                .As<ITestsService>()
-                .InstancePerRequest();
         }
     }
 }
