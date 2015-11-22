@@ -24,13 +24,13 @@ namespace Fmi.Tests.Api.Services.Controllers
         }
 
         [HttpGet]
-        public async Task<QuestionDto> Get([FromUri] int id)
+        public async Task<QuestionDto> Get(int id)
         {
             return await _questionsService.Get(id).ConfigureAwait(false);
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> Create([FromBody] QuestionDto question)
+        public async Task<HttpResponseMessage> Create(QuestionDto question)
         {
             await _questionsService.Create(question).ConfigureAwait(false);
             return Request.CreateResponse(HttpStatusCode.Created);
