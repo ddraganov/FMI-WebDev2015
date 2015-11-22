@@ -1,35 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using Fmi.Tests.Contracts.Dto;
 using Fmi.Tests.Contracts.Requests.Questions;
+using Fmi.Tests.Core.Handlers.Exceptions;
 using Fmi.Tests.Core.Handlers.Interfaces;
+using Fmi.Tests.Core.Sql;
 
 namespace Fmi.Tests.Core.Handlers.Features.Questions
 {
     public class GetQuestionHandler : IRequestHandler<GetQuestionRequest, QuestionDto>
     {
+        private readonly TestsContext _db;
+
+        public GetQuestionHandler(TestsContext db)
+        {
+            _db = db;
+        }
+
         public async Task<QuestionDto> HandleAsync(GetQuestionRequest request)
         {
-            return new QuestionDto()
-            {
-                Id = 1,
-                Text = "What's your name?",
-                Answers = new List<AnswerDto>
-                {
-                    new AnswerDto()
-                    {
-                        Id = 1,
-                        IsCorrect = true,
-                        Text = "John"
-                    },
-                    new AnswerDto()
-                    {
-                        Id = 2,
-                        IsCorrect = false,
-                        Text = "Doe"
-                    }
-                }
-            };
+            var question = await _db.Questions.FindAsync(request.Id).ConfigureAwait(false);
+
+            if (question == null)
+                throw new NotFoundException();
+
+            return Mapper.Map<QuestionDto>(question);
         }
     }
 }

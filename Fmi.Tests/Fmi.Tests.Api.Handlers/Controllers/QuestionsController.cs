@@ -49,7 +49,7 @@ namespace Fmi.Tests.Api.Handlers.Controllers
         public async Task Update(int id, [FromBody] QuestionDto question)
         {
             question.Id = id;
-            var request = new CreateQuestionRequest
+            var request = new UpdateQuestionRequest
             {
                 Question = question
             };

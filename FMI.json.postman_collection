@@ -42,7 +42,7 @@
 		{
 			"id": "14bad655-5c39-7175-d7a5-e61cc35b1268",
 			"headers": "X-Correlation-Token: somevalue\nContent-Type: application/json\nauth-token: thetoken\n",
-			"url": "http://localhost:{{api_port}}/api/questions/",
+			"url": "http://localhost:{{api_port}}/api/questions?skip=0&take=5",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -52,7 +52,7 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771720472,
+			"time": 1448220229208,
 			"name": "Get All Questions",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
@@ -61,7 +61,7 @@
 		{
 			"id": "1c770ac5-867b-6dd0-345f-9908ffd828e9",
 			"headers": "X-Correlation-Token: somevalue\nContent-Type: application/json\nauth-token: thetoken\n",
-			"url": "http://localhost:{{api_port}}/api/questions/1/iscorrect?answer=2",
+			"url": "http://localhost:{{api_port}}/api/questions/7/iscorrect?answer=10",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -71,7 +71,7 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771735869,
+			"time": 1448222670577,
 			"name": "Is Question Answer Correct",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
@@ -80,7 +80,7 @@
 		{
 			"id": "2bb3f2c5-3aab-3a44-b15c-6d8f5e3d4a5a",
 			"headers": "X-Correlation-Token: somevalue\nContent-Type: application/json\nauth-token: thetoken\n",
-			"url": "http://localhost:{{api_port}}/api/questions/1",
+			"url": "http://localhost:{{api_port}}/api/questions/7",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -90,12 +90,12 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771732281,
+			"time": 1448222449193,
 			"name": "Update Question",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
 			"responses": [],
-			"rawModeData": "{\n    \"Text\": \"What's your name?\",\n    \"Answers\": [\n        {\n            \"Text\": \"John\",\n            \"IsCorrect\": \"false\"\n        }\n    ]\n}"
+			"rawModeData": "{\n    \"Text\": \"What's your first name?\",\n    \"Answers\": [\n        {\n            \"Text\": \"John\",\n            \"IsCorrect\": \"false\"\n        },\n        {\n            \"Text\": \"Doe\",\n            \"IsCorrect\": \"true\"\n        }\n    ]\n}"
 		},
 		{
 			"id": "3a32cda5-8ae8-5843-6501-c4b665fd36d4",
@@ -110,12 +110,12 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771716538,
+			"time": 1448222388580,
 			"name": "Create Question",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
 			"responses": [],
-			"rawModeData": "{\n    \"Text\": \"What's your name?\",\n    \"Answers\": [\n        {\n            \"Text\": \"John\",\n            \"IsCorrect\": \"false\"\n        }\n    ]\n}"
+			"rawModeData": "{\n    \"Text\": \"What's your name?\",\n    \"Answers\": [\n        {\n            \"Text\": \"John\",\n            \"IsCorrect\": \"false\"\n        },\n        {\n            \"Text\": \"Doe\",\n            \"IsCorrect\": \"true\"\n        }\n    ]\n}"
 		},
 		{
 			"id": "5973223a-a988-11da-7650-bb498fea0612",
@@ -139,7 +139,7 @@
 		{
 			"id": "6514079a-7bfb-e9f1-8da9-54fa066574c7",
 			"headers": "X-Correlation-Token: somevalue\nContent-Type: application/json\nauth-token: thetoken\n",
-			"url": "http://localhost:{{api_port}}/api/tests/",
+			"url": "http://localhost:{{api_port}}/api/tests?skip=0&take=5",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -149,7 +149,7 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771747365,
+			"time": 1448222717590,
 			"name": "Get All Tests",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
@@ -187,12 +187,12 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771739211,
+			"time": 1448222683618,
 			"name": "Are Questions Answers Correct",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
 			"responses": [],
-			"rawModeData": "{\n    \"1\": \"3\"\n}"
+			"rawModeData": "{\n    \"7\": \"9\"\n}"
 		},
 		{
 			"id": "94f23da3-3704-ccad-4f78-2ddfc5afd7d0",
@@ -285,12 +285,12 @@
 			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1447771758494,
+			"time": 1448222990256,
 			"name": "Update Test",
 			"description": "",
 			"collectionId": "2c6a25ac-4420-101d-ed34-28c6ea56402b",
 			"responses": [],
-			"rawModeData": "{\n    \"Name\": \"test\",\n    \"Code\": \"s\"\n}"
+			"rawModeData": "{\n    \"Name\": \"tested\",\n    \"Code\": \"code\"\n}"
 		}
 	]
 }

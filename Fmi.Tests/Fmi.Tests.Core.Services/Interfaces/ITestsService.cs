@@ -8,10 +8,9 @@ namespace Fmi.Tests.Core.Services.Interfaces
     {
         Task<IEnumerable<TestDto>> Get(int skip, int take);
         Task<TestDto> Get(string code);
-        Task Create(TestDto question);
-        Task Update(TestDto question, string authToken);
-        Task Delete(string id, string authToken);
-        Task AddQuestions(string code, List<int> questionIdList, string authToken);
-        Task AddQuestions(string code, List<QuestionDto> questionIdList);
+        Task Create(TestDto test);
+        Task Update(TestDto test);
+        Task Delete(string id);
+        Task AddQuestions(string code, List<int> questionIdList);
     }
 }

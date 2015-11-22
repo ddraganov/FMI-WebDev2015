@@ -1,14 +1,19 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
+using AutoMapper;
 using FluentValidation.WebApi;
 using Fmi.Tests.Api.Handlers.Filters;
+using Fmi.Tests.Contracts.Dto;
 using Fmi.Tests.Core.Handlers;
 using Fmi.Tests.Core.Handlers.CrossCutting;
 using Fmi.Tests.Core.Handlers.Interfaces;
+using Fmi.Tests.Core.Sql;
+using Fmi.Tests.Core.Sql.Entities;
 
 namespace Fmi.Tests.Api.Handlers
 {
@@ -22,6 +27,7 @@ namespace Fmi.Tests.Api.Handlers
             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
             config.Filters.Add(new BadRequestExceptionAttribute());
+            config.Filters.Add(new NotFoundExceptionAttribute());
             config.Filters.Add(new AuthAttribute());
             config.Filters.Add(new ValidationFilterAttribute());
 
@@ -34,6 +40,7 @@ namespace Fmi.Tests.Api.Handlers
             builder.RegisterWebApiFilterProvider(config);
 
             RegisterHandlers(builder);
+            RegisterContext(builder);
 
             var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
@@ -41,6 +48,9 @@ namespace Fmi.Tests.Api.Handlers
             FluentValidationModelValidatorProvider.Configure(config);
 
             config.EnsureInitialized();
+
+            TestsContext.SetInitializer();
+            ConfigureMappings();
         }
 
         private static void RegisterHandlers(ContainerBuilder builder)
@@ -57,6 +67,26 @@ namespace Fmi.Tests.Api.Handlers
                 typeof(LoggingHandlerDecorator<,>),
                 typeof(IRequestHandler<,>),
                 fromKey: "handler");
+        }
+
+        private static void RegisterContext(ContainerBuilder builder)
+        {
+            builder.RegisterType<TestsContext>()
+                .InstancePerRequest()
+                .AsSelf()
+                .As<DbContext>();
+        }
+
+        private static void ConfigureMappings()
+        {
+            Mapper.CreateMap<TestDto, TestEntity>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
+            Mapper.CreateMap<TestEntity, TestDto>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
+
+            Mapper.CreateMap<QuestionDto, QuestionEntity>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
+            Mapper.CreateMap<QuestionEntity, QuestionDto>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
+
+            Mapper.CreateMap<AnswerDto, AnswerEntity>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
+            Mapper.CreateMap<AnswerEntity, AnswerDto>().ForAllMembers(opt => opt.Condition(e => !e.IsSourceValueNull));
         }
     }
 }

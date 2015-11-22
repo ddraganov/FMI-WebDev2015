@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Controllers;
-using Fmi.Tests.Contracts;
 using Fmi.Tests.Contracts.Dto;
 using Fmi.Tests.Core.Services.Interfaces;
 
@@ -15,21 +12,9 @@ namespace Fmi.Tests.Api.Services.Controllers
     {
         private readonly ITestsService _testsService;
 
-        private string _authToken;
-
         public TestsController(ITestsService testsService)
         {
             _testsService = testsService;
-        }
-
-        protected override void Initialize(HttpControllerContext controllerContext)
-        {
-            base.Initialize(controllerContext);
-
-            var headers = controllerContext.Request.Headers;
-            IEnumerable<string> values;
-            if (headers.TryGetValues(Constants.Headers.AuthTokenHeader, out values))
-                _authToken = values.FirstOrDefault();
         }
 
         [HttpGet]
@@ -55,20 +40,20 @@ namespace Fmi.Tests.Api.Services.Controllers
         public async Task Update(string id, [FromBody] TestDto test)
         {
             test.Code = id;
-            await _testsService.Update(test, _authToken).ConfigureAwait(false);
+            await _testsService.Update(test).ConfigureAwait(false);
         }
 
         [HttpDelete]
         public async Task Delete([FromUri] string id)
         {
-            await _testsService.Delete(id, _authToken).ConfigureAwait(false);
+            await _testsService.Delete(id).ConfigureAwait(false);
         }
 
         [HttpPut]
         [Route("api/tests/{id}/questions")]
         public async Task QuestionIds(string id, [FromBody] List<int> questionIdList)
         {
-            await _testsService.AddQuestions(id, questionIdList, _authToken).ConfigureAwait(false);
+            await _testsService.AddQuestions(id, questionIdList).ConfigureAwait(false);
         }
     }
 }
