@@ -1,0 +1,91 @@
+﻿@model RestTestWebApp.ViewModels.QuestionsDetailsViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>QuestionsDetailsViewModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Answers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div id="container" class="col-md-10">
+                @for (int i = 0; i < Model.Answers.Count; i++)
+                {
+                    <div class="item row" @(i == 0 ? string.Empty : "style=margin-top:15px;")>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Answers.ElementAt(i).Text, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-8">
+                            <label class="checkbox-inline">@Html.CheckBoxFor(model => model.Answers.ElementAt(i).IsCorrect)Is Correct</label>
+                            &nbsp;
+                            <button type="button" class="remove-answer btn btn-danger">Remove</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" id="add-answer" class="btn btn-success">Add</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var addButton = $('#add-answer');
+            var container = $('#container');
+
+            container.on('click', '.remove-answer', function () {
+                $(this).parents('div.item').remove();
+            });
+
+            addButton.click(function () {
+                var newAnswer = container.find('div.item:first').clone();
+
+                newAnswer.find('input[type=text]').val('');
+                newAnswer.find('input[type=checkbox]').removeProp('checked');
+                newAnswer.css('margin-top', '15px');
+
+                container.append(newAnswer);
+
+                container.find('div.item').each(function (index, element) {
+                    $(element).find('input[type=text]').attr('name', 'Answers[' + index + '].Text');
+                    $(element).find('input[type=checkbox]').attr('name', 'Answers[' + index + '].IsCorrect');
+                });
+            });
+        });
+    </script>
+}
