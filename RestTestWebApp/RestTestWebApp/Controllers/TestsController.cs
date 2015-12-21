@@ -111,13 +111,6 @@ namespace RestTestWebApp.Controllers
         [HttpPost]
         public ActionResult Edit(string id, TestDetailsViewModel model)
         {
-            TestDto exisctingTest = webClient.ExecuteGet<TestDto>(new Models.ApiRequest() { EndPoint = string.Format("tests/{0}", model.Code) });
-
-            if(exisctingTest != null)
-            {
-                ModelState.AddModelError("Code", "Code already exists");
-            }
-
             if (ModelState.IsValid)
             {
                 try
@@ -149,25 +142,12 @@ namespace RestTestWebApp.Controllers
         }
 
         // GET: Tests/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            webClient.ExecuteDelete(new Models.ApiRequest() { EndPoint = string.Format("tests/{0}", id) });
+
+            return RedirectToAction("Index");
         }
 
-        // POST: Tests/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

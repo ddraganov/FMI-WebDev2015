@@ -1,10 +1,10 @@
 ﻿@model RestTestWebApp.ViewModels.QuestionsDetailsViewModel
 
 @{
-    ViewBag.Title = "Create";
+     
 }
 
-<h2>Create</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm())
@@ -50,7 +50,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" id="save-button" />
             </div>
         </div>
     </div>
@@ -81,6 +81,13 @@
 
                 container.append(newAnswer);
 
+                container.find('div.item').each(function (index, element) {
+                    $(element).find('input[type=text]').attr('name', 'Answers[' + index + '].Text');
+                    $(element).find('input[type=checkbox]').attr('name', 'Answers[' + index + '].IsCorrect');
+                });
+            });
+
+            $('#save-button').click(function () {
                 container.find('div.item').each(function (index, element) {
                     $(element).find('input[type=text]').attr('name', 'Answers[' + index + '].Text');
                     $(element).find('input[type=checkbox]').attr('name', 'Answers[' + index + '].IsCorrect');

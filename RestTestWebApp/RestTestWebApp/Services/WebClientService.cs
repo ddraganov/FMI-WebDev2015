@@ -95,7 +95,7 @@ namespace RestTestWebApp.Services
             }
         }
 
-        public TResponse ExecuteDelete<TResponse>(ApiRequest request)
+        public void ExecuteDelete(ApiRequest request)
         {
             try
             {
@@ -103,18 +103,13 @@ namespace RestTestWebApp.Services
                 {
                     using (var response = client.DeleteAsync(request.EndPoint).GetAwaiter().GetResult())
                     {
-                        if (response.IsSuccessStatusCode)
-                        {
-                            return JsonConvert.DeserializeObject<TResponse>(response.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-                        }
-
-                        return default(TResponse);
+                        response.EnsureSuccessStatusCode();
                     }
                 }
             }
             catch
             {
-                return default(TResponse);
+                return;
             }
         }
 

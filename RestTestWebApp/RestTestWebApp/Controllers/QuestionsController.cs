@@ -42,6 +42,8 @@ namespace RestTestWebApp.Controllers
 
             model.Answers.Add(new AnswerViewModel() { Text = string.Empty, IsCorrect = false });
 
+            ViewBag.Title = "Create";
+
             return View(model);
         }
 
@@ -83,45 +85,56 @@ namespace RestTestWebApp.Controllers
             model.Text = question.Text;
             model.Answers = question.Answers.Select(a => new AnswerViewModel() { Text = a.Text, IsCorrect = a.IsCorrect }).ToList();
 
+            ViewBag.Title = "Edit";
+
             return View("Create", model);
         }
 
         // POST: Questions/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, QuestionsDetailsViewModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        var response = webClient.ExecutePut<object>(new Models.ApiRequest()
+                        {
+                            EndPoint = string.Format("questions/{0}", model.Id),
+                            Request = new QuestionDto()
+                            {
+                                Text = model.Text,
+                                Answers = model.Answers.Select(a => new AnswerDto() { IsCorrect = a.IsCorrect, Text = a.Text }).ToList()
+                            }
+                        });
 
-                return RedirectToAction("Index");
+                        return RedirectToAction("Index");
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("generalError", e.Message);
+
+                        return View(model);
+                    }
+                }
+
+                return View(model);
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
 
         // GET: Questions/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            webClient.ExecuteDelete(new Models.ApiRequest() { EndPoint = string.Format("questions/{0}", id) });
+
+            return RedirectToAction("Index");
         }
 
-        // POST: Questions/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

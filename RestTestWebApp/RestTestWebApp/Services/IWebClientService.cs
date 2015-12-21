@@ -14,6 +14,6 @@ namespace RestTestWebApp.Services
 
         TResponse ExecutePut<TResponse>(ApiRequest request);
 
-        TResponse ExecuteDelete<TResponse>(ApiRequest request);
+        void ExecuteDelete(ApiRequest request);
     }
 }
