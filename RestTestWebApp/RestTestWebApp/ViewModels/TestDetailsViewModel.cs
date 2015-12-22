@@ -12,9 +12,6 @@ namespace RestTestWebApp.ViewModels
         public string AuthToken { get; set; }
 
         [Required]
-        public string Name { get; set; }
-
-        [Required]
         public string Desctiption { get; set; }
 
         public List<int> QuestionIds { get; set; }
