@@ -3,7 +3,9 @@
 ################################################################################
 
 /Fmi.Tests/Fmi.Tests.Api/bin
+/RestTestWebApp/RestTestWebApp/bin
 /Fmi.Tests/Fmi.Tests.Api/obj/Debug
+/RestTestWebApp/RestTestWebApp/obj/Debug
 *.user
 /Fmi.Tests/Fmi.Tests.Contracts/bin/Debug
 /Fmi.Tests/Fmi.Tests.Contracts/obj/Debug
@@ -12,6 +14,7 @@
 /Fmi.Tests/Fmi.Tests.Core.Services/bin/Debug
 /Fmi.Tests/Fmi.Tests.Core.Services/obj/Debug
 /Fmi.Tests/packages
+/RestTestWebApp/packages
 *.suo
 /Fmi.Tests/Fmi.Tests.Api.Handlers/bin
 /Fmi.Tests/Fmi.Tests.Api.Handlers/obj/Debug
