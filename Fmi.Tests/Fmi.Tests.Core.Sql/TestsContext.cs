@@ -1,14 +1,17 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using Fmi.Tests.Core.Sql.Configurations;
 using Fmi.Tests.Core.Sql.Entities;
+using Microsoft.WindowsAzure;
 
 namespace Fmi.Tests.Core.Sql
 {
     public class TestsContext : DbContext
     {
         public TestsContext()
-            : base("testsConnection")
-        { }
+            : base(CloudConfigurationManager.GetSetting("testsConnection"))
+        {
+        }
 
         public DbSet<TestEntity> Tests { get; set; }
         public DbSet<QuestionEntity> Questions { get; set; }

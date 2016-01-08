@@ -1,0 +1,13 @@
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\Fmi.Tests.Core.Sql.dll
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\Fmi.Tests.Core.Sql.pdb
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\EntityFramework.dll
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\EntityFramework.SqlServer.dll
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\EntityFramework.xml
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\EntityFramework.SqlServer.xml
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\obj\Release\Fmi.Tests.Core.Sql.csprojResolveAssemblyReference.cache
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\obj\Release\Fmi.Tests.Core.Sql.Migrations.Create.resources
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\obj\Release\Fmi.Tests.Core.Sql.csproj.GenerateResource.Cache
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\obj\Release\Fmi.Tests.Core.Sql.dll
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\obj\Release\Fmi.Tests.Core.Sql.pdb
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\Microsoft.WindowsAzure.Configuration.dll
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Core.Sql\bin\Release\Microsoft.WindowsAzure.Configuration.xml

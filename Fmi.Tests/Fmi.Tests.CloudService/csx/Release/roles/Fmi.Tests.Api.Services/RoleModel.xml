@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RoleModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Fmi.Tests.Api.Services" version="2.5.6496.10" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <Runtime>
+    <EntryPoint>
+      <NetFxEntryPoint assemblyName="Fmi.Tests.Api.Services.dll" targetFrameworkVersion="v4.0" />
+    </EntryPoint>
+  </Runtime>
+  <Properties>
+    <Property name="TargetFrameworkVersion" value="v4.5" />
+    <Property name="RoleType" value="Web" />
+    <Property name="RoleName" value="Fmi.Tests.Api.Services" />
+    <Property name="ProjectName" value="Fmi.Tests.Api.Services" />
+    <Property name="Configuration" value="Release" />
+    <Property name="Platform" value="AnyCPU" />
+    <Property name="SetConfiguration" value="Configuration=Release" />
+    <Property name="SetPlatform" value="Platform=AnyCPU" />
+    <Property name="RoleTargetFramework" value="v4.5" />
+    <Property name="OutputDir" value="C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.CloudService\obj\Release\Fmi.Tests.Api.Services\" />
+    <Property name="EntryPoint" value="Fmi.Tests.Api.Services.dll" />
+    <Property name="SourceDir" value="C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Api.Services\" />
+    <Property name="SitePhysicalPath" value="C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.CloudService\obj\Release\Fmi.Tests.Api.Services\" />
+    <Property name="TargetRuntimeVersion" value="v4.0" />
+  </Properties>
+  <Sites>
+    <Site name="Web" physicalDirectory="C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.CloudService\obj\Release\Fmi.Tests.Api.Services\">
+      <Bindings>
+        <Binding name="Endpoint1" endpointName="Endpoint1" />
+      </Bindings>
+    </Site>
+  </Sites>
+</RoleModel>

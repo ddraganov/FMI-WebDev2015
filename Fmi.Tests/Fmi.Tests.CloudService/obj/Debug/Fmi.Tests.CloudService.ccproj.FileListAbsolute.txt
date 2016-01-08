@@ -1,0 +1,2 @@
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.CloudService\bin\Debug\ServiceConfiguration.cscfg
+C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.CloudService\bin\Debug\ServiceDefinition.csdef

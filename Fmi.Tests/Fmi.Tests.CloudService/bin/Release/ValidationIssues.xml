@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ValidationIssue Include="Fmi.Tests.Api.Services|FluentValidation.dll|WAT150">
+      <ProjectName>Fmi.Tests.Api.Services</ProjectName>
+      <FilenameWithExtension>FluentValidation.dll</FilenameWithExtension>
+      <Code>WAT150</Code>
+      <FileFullPath>C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Contracts\bin\Release\FluentValidation.dll</FileFullPath>
+      <WATMessage>True</WATMessage>
+      <Arguments>Fmi.Tests.Api.Services;C:\Git-Repos\FMI-WebDev2015\Fmi.Tests\Fmi.Tests.Contracts\bin\Release\FluentValidation.dll</Arguments>
+      <HelpKeyword>WATValidationIssueWarning</HelpKeyword>
+    </ValidationIssue>
+    <ValidationIssue Include="Fmi.Tests.Api.Services|Newtonsoft.Json.dll|WAT150">
+      <ProjectName>Fmi.Tests.Api.Services</ProjectName>
+      <FilenameWithExtension>Newtonsoft.Json.dll</FilenameWithExtension>
+      <Code>WAT150</Code>
+      <FileFullPath>C:\Program Files (x86)\Microsoft Visual Studio 12.0\Blend\Newtonsoft.Json.dll</FileFullPath>
+      <WATMessage>True</WATMessage>
+      <Arguments>Fmi.Tests.Api.Services;C:\Program Files (x86)\Microsoft Visual Studio 12.0\Blend\Newtonsoft.Json.dll</Arguments>
+      <HelpKeyword>WATValidationIssueWarning</HelpKeyword>
+    </ValidationIssue>
+  </ItemGroup>
+</Project>

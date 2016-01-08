@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="Fmi.Tests.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Fmi.Tests.Api.Services">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="testsConnection" value="Server=tcp:adavo5e0x6.database.windows.net,1433;Database=fmi-tests-db;User ID=fmi-root@adavo5e0x6;Password=akhasdFUEW#*$9293;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
