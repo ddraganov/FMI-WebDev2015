@@ -1,0 +1,105 @@
+﻿@model RestTestWebApp.ViewModels.TestDetailsViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Desctiption, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Desctiption, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Desctiption, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.AuthToken)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.QuestionIds, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.QuestionIds, Model.SelectedQuestions, new { @class = "form-control", id="selected-questions" })
+                <div style="padding:10px;">
+                    <button type="button" class="btn btn-default" disabled="disabled" id="add-button">Add</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-default" disabled="disabled" id="remove-button">Remove</button>
+                </div>
+                @Html.ListBox("AvailableQuestionsForSelection", Model.AvailableQuiestions, new { @class = "form-control", id = "available-questions" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" id="save-button" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var addButton = $('#add-button');
+            var removeButton = $('#remove-button');
+            var availableQuestions = $('#available-questions');
+            var selectedQuestions = $('#selected-questions');
+
+            addButton.click(function () {
+                var selectedOption = availableQuestions.find('option:selected');
+                selectedQuestions.append(selectedOption.clone());
+                selectedOption.remove();
+                addButton.attr('disabled', 'disabled');
+            });
+
+            removeButton.click(function () {
+                var selectedOption = selectedQuestions.find('option:selected');
+                availableQuestions.append(selectedOption.clone());
+                selectedOption.remove();
+                removeButton.attr('disabled', 'disabled');
+            });
+
+            availableQuestions.change(function () {
+                addButton.removeProp('disabled');
+            });
+
+            selectedQuestions.change(function () {
+                removeButton.removeProp('disabled');
+            });
+
+            $('#save-button').click(function () {
+                selectedQuestions.find('option').prop('selected', true);
+            });
+        });
+    </script>
+}

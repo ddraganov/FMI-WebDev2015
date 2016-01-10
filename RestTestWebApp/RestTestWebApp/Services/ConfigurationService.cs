@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using Microsoft.WindowsAzure;
 
 namespace RestTestWebApp.Services
 {
@@ -10,7 +6,7 @@ namespace RestTestWebApp.Services
     {
         public string GetValue(string key)
         {
-            return ConfigurationManager.AppSettings[key];
+            return CloudConfigurationManager.GetSetting(key);
         }
     }
 }

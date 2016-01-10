@@ -38,6 +38,14 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\RestTestWebApp\RestTestWebApp\RestTestWebApp.csproj">
+      <Name>RestTestWebApp</Name>
+      <Project>{0494e1f9-88a4-4e3c-87e6-862644fb6d89}</Project>
+      <Private>True</Private>
+      <RoleType>Web</RoleType>
+      <RoleName>RestTestWebApp</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
     <ProjectReference Include="..\Fmi.Tests.Api.Services\Fmi.Tests.Api.Services.csproj">
       <Name>Fmi.Tests.Api.Services</Name>
       <Project>{882a2ac5-73ea-4bcb-a3d4-7a9fc2179740}</Project>
@@ -49,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fmi.Tests.Api.ServicesContent\" />
+    <Folder Include="RestTestWebAppContent\" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="Fmi.Tests.Api.ServicesContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="RestTestWebAppContent\diagnostics.wadcfgx" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>

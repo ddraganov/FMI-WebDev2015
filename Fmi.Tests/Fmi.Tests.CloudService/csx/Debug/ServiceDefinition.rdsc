@@ -2,5 +2,6 @@
 <serviceContract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" dslVersion="1.0.0.0" name="Fmi.Tests.CloudServiceContract" xmlns="http://schemas.microsoft.com/dsltools/Contracts">
   <elements>
     <interface name="Fmi.Tests.Api.Services:Endpoint1" url="http://*:80" />
+    <interface name="RestTestWebApp:Endpoint1" url="http://*:8080" />
   </elements>
 </serviceContract>

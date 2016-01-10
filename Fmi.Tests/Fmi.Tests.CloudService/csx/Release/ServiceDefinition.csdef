@@ -12,4 +12,16 @@
     </Endpoints>
     <Certificates />
   </WebRole>
+  <WebRole name="RestTestWebApp">
+    <LocalResources>
+      <LocalStorage name="DiagnosticStore" sizeInMB="4096" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <ConfigurationSettings>
+      <Setting name="ApiBaseUrl" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="8080" localPort="8080" />
+    </Endpoints>
+    <Certificates />
+  </WebRole>
 </ServiceDefinition>

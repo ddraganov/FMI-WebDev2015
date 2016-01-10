@@ -6,4 +6,10 @@
       <Setting name="testsConnection" value="Server=(localdb)\v11.0;;Initial Catalog=Tests;Integrated Security=True" />
     </ConfigurationSettings>
   </Role>
+  <Role name="RestTestWebApp">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="ApiBaseUrl" value="http://localhost:55555/api/" />
+    </ConfigurationSettings>
+  </Role>
 </ServiceConfiguration>

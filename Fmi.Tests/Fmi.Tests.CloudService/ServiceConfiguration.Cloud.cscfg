@@ -6,4 +6,10 @@
       <Setting name="testsConnection" value="Server=tcp:adavo5e0x6.database.windows.net,1433;Database=fmi-tests-db;User ID=fmi-root@adavo5e0x6;Password=akhasdFUEW#*$9293;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" />
     </ConfigurationSettings>
   </Role>
+  <Role name="RestTestWebApp">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="ApiBaseUrl" value="http://fmi-tests.cloudapp.net/api/" />
+    </ConfigurationSettings>
+  </Role>
 </ServiceConfiguration>
